@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Image Assigner</title>
+		<link rel="stylesheet" href="dist/style.css" />
+		<script
+			src="https://kit.fontawesome.com/ebb02e5adb.js"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="dist/app.js" defer></script>
+	</head>
+	<body>
+		<div class="ImageGenerator">
+			<h1 class="title">Image Assigner</h1>
+			<div class="ImageHolder">
+				<img src="." alt="" id="imageToChoose" />
+			</div>
+			<div class="Actions">
+				<div class="emailInput">
+					<input
+						type="email"
+						name="emailInput"
+						id="emailInput"
+						placeholder="example@example.com"
+					/>
+					<button id="assign">Assign</button>
+				</div>
+				<div class="filler"></div>
+				<button id="newImage">New Image</button>
+			</div>
+		</div>
+		<div class="EmailBuckets">
+			<h2>Emails</h2>
+			<hr />
+			<p id="nothingHere">
+				Nothing here currently! Try assigning an image to an email!
+			</p>
+		</div>
+	</body>
+</html>

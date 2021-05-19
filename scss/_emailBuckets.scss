@@ -1,0 +1,80 @@
+.EmailBuckets {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	background: $secondBg;
+	color: $textCol;
+	h2 {
+		font-size: 2rem;
+		text-align: center;
+	}
+	& > p {
+		text-align: center;
+	}
+
+	.imageHolderHolder {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		height: 0;
+		overflow: hidden;
+		& > img {
+			flex: 1;
+			width: 33%;
+		}
+	}
+
+	.imgHHTrans {
+		transition: height 500ms;
+	}
+
+	div[id^='emailBox'] {
+		h3 {
+			text-align: center;
+			font-size: 1.4rem;
+		}
+		.ImageHolder {
+			width: 33%;
+			padding: 1rem;
+			img {
+				max-width: 100%;
+			}
+		}
+		.header {
+			position: relative;
+			.icons {
+				z-index: 10;
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				font-size: 2rem;
+				text-align: right;
+				&:hover {
+					cursor: pointer;
+				}
+				.fa-chevron-down {
+					display: inline;
+				}
+				.fa-chevron-up {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.expanded {
+		.imageHolderHolder {
+			height: auto;
+		}
+		.header .icons {
+			.fa-chevron-down {
+				display: none !important;
+			}
+			.fa-chevron-up {
+				display: inline !important;
+			}
+		}
+	}
+}

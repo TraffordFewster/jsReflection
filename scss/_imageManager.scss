@@ -1,0 +1,73 @@
+.ImageGenerator {
+	.title {
+		text-align: center;
+		color: $textCol;
+		height: 5rem;
+		font-size: 4rem;
+		vertical-align: middle;
+		margin: 0;
+		margin-bottom: 1vh;
+	}
+
+	.ImageHolder {
+		width: 100%;
+		height: calc(100vh - 12rem);
+		img {
+			display: block;
+			max-width: 100%;
+			max-height: calc(100vh - 12rem);
+			margin: auto;
+		}
+		margin-bottom: 1vh;
+	}
+
+	.Actions {
+		height: 5rem;
+		background: $secondBg;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 1rem;
+		& > *:not(.filler) {
+			flex: 1;
+			font-size: 1.3rem;
+		}
+		#newImage {
+			max-width: 200px;
+		}
+		.filler {
+			width: 1rem;
+		}
+		.emailInput {
+			display: flex;
+			& > * {
+				flex: 1;
+				font-size: 1.3rem;
+			}
+			input {
+				padding-left: 1rem;
+				outline: none;
+				border: none;
+				transition: box-shadow 300ms;
+				border: 1px solid $borderCol;
+				border-right: none;
+				&:focus {
+					box-shadow: 0px 0px 5px 0px $accent;
+				}
+			}
+			button {
+				max-width: 200px;
+			}
+		}
+
+		button {
+			transition: background-color 200ms;
+			background: $buttonBg;
+			border: 1px solid $borderCol;
+			outline: none;
+			&:hover {
+				cursor: pointer;
+				background: darken($color: $buttonBg, $amount: 10);
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Raleway:wght@400;700&display=swap');
+
+$mainBg: #252525;
+$secondBg: #3f3f3f;
+$buttonBg: #cccccc;
+
+$accent: #8bff87;
+
+$textCol: whitesmoke;
+
+$borderCol: grey;
+
+body {
+	background: #252525;
+	padding: 0 1rem;
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	font-family: 'Pattaya', sans-serif;
+}
+
+@import '_imageManager.scss', '_emailBuckets.scss';
