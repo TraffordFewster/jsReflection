@@ -59,7 +59,15 @@ class ImageList {
 	}
 }
 
+/**
+ * Class for the email containers
+ */
 class emailContainer {
+	/**
+	 * Contructor for the email Container
+	 * @param {string} email - Email assigned to the container
+	 * @param {number} id - Unique ID of the container
+	 */
 	constructor(email, id) {
 		this.email = email;
 		this.imgList = [];
@@ -77,6 +85,10 @@ class emailContainer {
 		this.imageHolder = $(`#emailBox-${id} .imageHolderHolder`);
 	}
 
+	/**
+	 * addImage - adds an image to the email container
+	 * @param {object} imgObj - an appImage object that is to be added to the container
+	 */
 	addImage(imgObj) {
 		this.imgList.push(imgObj);
 		this.imageHolder.append(`<div class="ImageHolder">
@@ -110,6 +122,11 @@ const nextImage = () => {
 	}
 };
 
+/**
+ * validates an email provided https://www.w3resource.com/javascript/form/email-validation.php
+ * @param {string} email - email to validate
+ * @returns {bool} - wether it is an email or not
+ */
 const validateEmail = (email) => {
 	{
 		if (
@@ -124,6 +141,9 @@ const validateEmail = (email) => {
 	}
 };
 
+/**
+ * Used to when the assign button is clicked.
+ */
 const assignCurrentImg = () => {
 	let email = $('#emailInput').val();
 	if (!validateEmail(email)) {
@@ -145,9 +165,6 @@ const assignCurrentImg = () => {
 
 let imgLists = [new ImageList(1, nextImage)];
 
-/**
- * On new image click
- */
 $('#newImage').click(() => {
 	nextImage();
 });
@@ -156,21 +173,21 @@ $('#assign').click(() => {
 	assignCurrentImg();
 });
 
-// I dont know why this works but it does so
 $('.EmailBuckets').on('click', '.icons', (e) => {
 	let el = $(e.currentTarget.parentNode.parentNode);
 	let child = el.children('.imageHolderHolder');
 
 	el.toggleClass('expanded');
 	if (el.hasClass('expanded')) {
-		child.css('height', 'auto');
-		let h = child.height();
-		child.css('height', 0);
+		child.css('height', 'auto'); // Set height to auto so we can grab the height
+		let h = child.height(); // Get auto height
+		child.css('height', 0); // Set back to 0 for the transition
 		setTimeout(() => {
-			child.css('height', h);
+			// Timeout cos css is weird
+			child.css('height', h); // set height
 
 			setTimeout(() => {
-				child.css('height', 'auto');
+				child.css('height', 'auto'); // set back to auto so if new lines are added it will still expand
 			}, 500);
 		}, 100);
 	} else {

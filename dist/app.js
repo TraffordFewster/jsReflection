@@ -81,8 +81,17 @@ var ImageList = /*#__PURE__*/function () {
 
   return ImageList;
 }();
+/**
+ * Class for the email containers
+ */
+
 
 var emailContainer = /*#__PURE__*/function () {
+  /**
+   * Contructor for the email Container
+   * @param {string} email - Email assigned to the container
+   * @param {number} id - Unique ID of the container
+   */
   function emailContainer(email, id) {
     _classCallCheck(this, emailContainer);
 
@@ -92,6 +101,11 @@ var emailContainer = /*#__PURE__*/function () {
     this.div = $("#emailBox-".concat(id));
     this.imageHolder = $("#emailBox-".concat(id, " .imageHolderHolder"));
   }
+  /**
+   * addImage - adds an image to the email container
+   * @param {object} imgObj - an appImage object that is to be added to the container
+   */
+
 
   _createClass(emailContainer, [{
     key: "addImage",
@@ -129,6 +143,12 @@ var nextImage = function nextImage() {
     });
   }
 };
+/**
+ * validates an email provided https://www.w3resource.com/javascript/form/email-validation.php
+ * @param {string} email - email to validate
+ * @returns {bool} - wether it is an email or not
+ */
+
 
 var validateEmail = function validateEmail(email) {
   {
@@ -140,6 +160,10 @@ var validateEmail = function validateEmail(email) {
     return false;
   }
 };
+/**
+ * Used to when the assign button is clicked.
+ */
+
 
 var assignCurrentImg = function assignCurrentImg() {
   var email = $('#emailInput').val();
@@ -162,30 +186,30 @@ var assignCurrentImg = function assignCurrentImg() {
 };
 
 var imgLists = [new ImageList(1, nextImage)];
-/**
- * On new image click
- */
-
 $('#newImage').click(function () {
   nextImage();
 });
 $('#assign').click(function () {
   assignCurrentImg();
-}); // I dont know why this works but it does so
-
+});
 $('.EmailBuckets').on('click', '.icons', function (e) {
   var el = $(e.currentTarget.parentNode.parentNode);
   var child = el.children('.imageHolderHolder');
   el.toggleClass('expanded');
 
   if (el.hasClass('expanded')) {
-    child.css('height', 'auto');
-    var h = child.height();
-    child.css('height', 0);
+    child.css('height', 'auto'); // Set height to auto so we can grab the height
+
+    var h = child.height(); // Get auto height
+
+    child.css('height', 0); // Set back to 0 for the transition
+
     setTimeout(function () {
-      child.css('height', h);
+      // Timeout cos css is weird
+      child.css('height', h); // set height
+
       setTimeout(function () {
-        child.css('height', 'auto');
+        child.css('height', 'auto'); // set back to auto so if new lines are added it will still expand
       }, 500);
     }, 100);
   } else {
